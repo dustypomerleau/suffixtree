@@ -6,13 +6,19 @@
 ;;  (define tree (new-suffix-tree))
 ;;  (suffix-tree-add! tree (make-label "00000100$"))
 
+
+;; JBC, 2019-12: not sure what's going on with this file; looks like these
+;; exports were commented out in 16552e39f5428d0d8cd3af583bdec996e3047369,
+;; but I'm not sure why. I'm going to just comment out this block to
+;; allow testing & compilation to proceed. Hm.
+#;(
 (enable-ukkonen-debug-messages)
 
 (let-values (((tree) (new-suffix-tree))
              ((label-1 label-2) (values (make-label "a$")
                                         (make-label "a!"))))
   (suffix-tree-add! tree label-1)
-  (suffix-tree-add! tree label-2))
+  (suffix-tree-add! tree label-2)))
 
 
 

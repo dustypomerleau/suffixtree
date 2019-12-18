@@ -1,8 +1,7 @@
 #lang scribble/manual
-@(require planet/scribble
-          racket/sandbox
+@(require racket/sandbox
           scribble/eval
-          (for-label (this-package-in main)
+          (for-label "main.rkt"
                      racket/base))
 
 
@@ -29,7 +28,7 @@ on notes from Gusfield, "Algorithms on Strings, Trees, and Sequences".
 Let's rush into a minimal example:
 
 @interaction[#:eval my-evaluator 
-(require (planet dyoo/suffixtree))
+(require suffixtree)
 (define tree (make-tree))
 (tree-add! tree (string->label "00010010$"))
 (define root (tree-root tree))
@@ -86,7 +85,7 @@ below.
 
 
 @section{API}
-@defmodule/this-package[main]
+@defmodule[suffixtree]
 
 The API consists of the main suffix tree algorithm, and auxillary
 utilities and applications.
@@ -94,7 +93,7 @@ utilities and applications.
 The main structures are trees, nodes, and labels.
 
 @subsection{Trees}
-@declare-exporting/this-package[main]
+@declare-exporting[suffixtree]
 
 A suffix tree consists of a root.  This implementation allows multiple
 labels to be added to the tree.
@@ -365,7 +364,7 @@ For example:
 @codeblock|{
 #lang racket/base
 
-(require (planet dyoo/suffixtree))
+(require suffixtree)
 
 ;; String reference
 (struct sref (str))
